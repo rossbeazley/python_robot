@@ -48,13 +48,13 @@ class MotorControl:
 
     def left45(self):
         print "RIGHT 45"
-        for StepCounter in range(0, 600):
+        for StepCounter in range(0, 200):
             self.right.stepForwards()
             self.left.stepBackwards()
 
     def right45(self):
         print "LEFT 45"
-        for StepCounter in range(0, 600):
+        for StepCounter in range(0, 200):
             self.left.stepForwards()
             self.right.stepBackwards()
 
@@ -66,6 +66,6 @@ class MotorControl:
 
     def forwards(self):
         print "FORWARDS"
-        for StepCounter in range(0, 100):
+        for StepCounter in range(0, 10):
             self.left.stepForwards()
             self.right.stepForwards()
