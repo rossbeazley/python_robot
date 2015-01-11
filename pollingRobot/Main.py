@@ -19,6 +19,15 @@ GPIO.setup(4,GPIO.IN)
 GPIO.setup(14,GPIO.IN)
 GPIO.setup(23,GPIO.IN)
 
+class Whiskers:
+    def __init__(self,left,right):
+        self.left = left
+        self.right = right
+
+    @staticmethod
+    def read_whiskers():
+        return Whiskers(GPIO.input(15) or GPIO.input(23), GPIO.input(14) or GPIO.input(4))
+
 StepPinsLeft = [17,18,22,27]
 
 for pin in StepPinsLeft:
@@ -33,13 +42,7 @@ for pin in StepPinsRight:
   GPIO.setup(pin,GPIO.OUT)
   GPIO.output(pin, False)
 
-class Whiskers:
-    def __init__(self,left,right):
-        self.left = left
-        self.right = right
 
-def read_whiskers():
-    return Whiskers(GPIO.input(15) or GPIO.input(23), GPIO.input(14) or GPIO.input(4))
 
 StepCount = 4
 Seq = []
@@ -112,7 +115,7 @@ def forwards():
 # else
 #   go forwards
 while True:
-    whiskers = read_whiskers()
+    whiskers = Whiskers.read_whiskers()
     if whiskers.left and whiskers.right:
         back_off()
         right90()
