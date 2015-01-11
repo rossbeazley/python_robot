@@ -15,18 +15,18 @@ class StepperMotor:
         self.StepPins = pins
 
     def stepForwards(self):
-        iteration = range(0, 4)
+        iteration = range(0, self.StepCount)
         self._step(iteration)
 
     def stepBackwards(self):
-        iteration = reversed(range(0, 4))
+        iteration = [3, 2, 1, 0]
         self._step(iteration)
 
     def _step(self, iteration):
         WaitTime = 0.01
         # loop from 0 to StepCount
-        for StepCounter in range(0, self.StepCount):
-            for pin in iteration:
+        for StepCounter in iteration:
+            for pin in range(0, 4):
                 xpin = self.StepPins[pin]
                 if self.Seq[StepCounter][pin] != 0:
                     xpin.high()
