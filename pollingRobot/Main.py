@@ -50,33 +50,27 @@ Seq[2] = [0,0,1,0]
 Seq[3] = [0,0,0,1]
 
 def stepForwards(StepPins):
-    WaitTime = 0.01
-
-    # loop from 0 to StepCount
-    for StepCounter in range(0, StepCount):
-        for pin in range(0, 4):
-            xpin = StepPins[pin]
-            if Seq[StepCounter][pin]!=0:
-                #print " Step %i Enable %i" %(StepCounter,xpin)
-                GPIO.output(xpin, True)
-            else:
-                GPIO.output(xpin, False)
-        time.sleep(WaitTime)
-
+    iteration = range(0, 4)
+    step(StepPins,iteration)
 
 def stepBackwards(StepPins):
-    WaitTime = 0.01
+    iteration = reversed(range(0, 4))
+    step(StepPins, iteration)
 
+def step(StepPins, iteration):
+    WaitTime = 0.01
     # loop from 0 to StepCount
-    for StepCounter in range(StepCount, 0):
-        for pin in range(0, 4):
+    for StepCounter in range(0, StepCount):
+        for pin in iteration:
             xpin = StepPins[pin]
-            if Seq[StepCounter][pin]!=0:
+            if Seq[StepCounter][pin] != 0:
                 #print " Step %i Enable %i" %(StepCounter,xpin)
                 GPIO.output(xpin, True)
             else:
                 GPIO.output(xpin, False)
         time.sleep(WaitTime)
+
+
 
 
 def back_off():
