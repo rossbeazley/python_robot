@@ -39,7 +39,6 @@ class Movement(unittest.TestCase):
         self.stepper.stepForwards()
         self.assertListEqual(self.pin4.levels, [False, False, False, True])
 
-
     def test_backwards_pin4(self):
         self.stepper.stepBackwards()
         self.assertListEqual(self.pin4.levels, [True, False, False, False])
