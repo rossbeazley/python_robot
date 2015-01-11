@@ -42,19 +42,19 @@ class MotorControl:
 
     def back_off(self):
         print "BACKOFF"
-        for StepCounter in range(0, 500):
+        for StepCounter in range(0, 100):
             self.left.stepBackwards()
             self.right.stepBackwards()
 
     def left45(self):
         print "RIGHT 45"
-        for StepCounter in range(0, 100):
+        for StepCounter in range(0, 600):
             self.right.stepForwards()
             self.left.stepBackwards()
 
     def right45(self):
         print "LEFT 45"
-        for StepCounter in range(0, 100):
+        for StepCounter in range(0, 600):
             self.left.stepForwards()
             self.right.stepBackwards()
 

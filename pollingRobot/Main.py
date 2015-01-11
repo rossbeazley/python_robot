@@ -6,10 +6,10 @@ import Whiskers
 import Brain
 
 
-StepPinsLeft = [Pins.Out(17), Pins.Out(18), Pins.Out(22), Pins.Out(27)]
+StepPinsLeft = [Pins.Out(9), Pins.Out(25), Pins.Out(11), Pins.Out(8)]
 left = Motors.StepperMotor(StepPinsLeft)
 
-StepPinsRight = [Pins.Out(9), Pins.Out(25), Pins.Out(11), Pins.Out(8)]
+StepPinsRight = [Pins.Out(17), Pins.Out(18), Pins.Out(22), Pins.Out(27)]
 right = Motors.StepperMotor(StepPinsRight)
 
 motors = Motors.MotorControl(left, right)
